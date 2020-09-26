@@ -19,7 +19,7 @@
 * Now click on Edit Settings on the Spotify Dashboard, and add your redirect URI as one of the whitelisted URI's. (`http://localhost:8080` is the default, the website does not have to work, it just needs a place to redirect to.)
 ![Whitelist the URI](https://i.imgur.com/x9Ykeyh.gif)
 * Now open 2 terminal windows and cd into the directories. Then type `python3 senseify.py` in one, and `python3 controlify.py`
-![Senseify in Action!](https://i.imgur.com/5oYX2RV.gif)
+[Senseify in Action! (GIF is too long to display directly on GitHub)](https://i.imgur.com/5oYX2RV.gif)
 
 ### Known issues
 * The player will not work if no music is playing. It will just stop the program.
