@@ -20,6 +20,13 @@
 ![Whitelist the URI](https://i.imgur.com/x9Ykeyh.gif)
 * Now open 2 terminal windows and cd into the directories. Then type `python3 senseify.py` in one, and `python3 controlify.py`
 
+### Controllify Controls
+* All of these are used on the joystick on the sensehat
+* Push Up - Volume Up
+* Push Down - Volume Down
+* Push Left - Previous Song/Restart Song
+* Push Right - Skip Song
+* Push Down - Pause (You must restart the music on your device to resume.)
 
 ### Known issues
 * The player will not work if no music is playing. It will just stop the program.
