@@ -1,6 +1,6 @@
 # Senseify
 ## Spotify controls for SenseHat
-
+![Senseify in Action!!](https://i.imgur.com/wtwysyJ.gif)
 ### Requirements
 * Raspberry Pi
 * Sense Hat
