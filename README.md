@@ -15,6 +15,7 @@
 * Go to the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard/) and create a new application
 ![Spotify Developer Dashboard](https://i.imgur.com/Km5P230.png)
 * Once you have created your app, click on "Show Client Secret and copy the Client ID & Client Secret to config.json
+* While you have config.json open, you can also choose if you want to have cover art show or not. The default is true, but if you wish to turn it off, change it to false
 ![Show the client secret](https://i.imgur.com/OEB4RYN.gif)
 * Now click on Edit Settings on the Spotify Dashboard, and add your redirect URI as one of the whitelisted URI's. (`http://localhost:8080` is the default, the website does not have to work, it just needs a place to redirect to.)
 ![Whitelist the URI](https://i.imgur.com/x9Ykeyh.gif)
