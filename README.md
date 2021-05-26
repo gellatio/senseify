@@ -9,6 +9,7 @@
   * Spotipy
   * PPrint
   * Sensehat (Added using `sudo apt-get install sense-hat`)
+  * Pillow
   
 ### How to setup
 * Install & setup all the requirements listed above & clone the repo (obviously)
