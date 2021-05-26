@@ -34,4 +34,5 @@
 * Volume control does not work on any iOS devices. There is no way around this, Apple is just stupid.
 * Browser windows will open randomly when the program is running, this is just the program authing itself on Spotify & getting any needed info. This program is completely safe, as you are the one running the application on Spotify!
 * Non-English characters will not appear, this isn't fixable either, since this is something SenseHat needs to add.
+* Some covers will look awful, that's just how 8-bit screens are. 
 * If you find any issues or have any critisism, feel free to leave an issue report or make a pull request! I am still fairly new to Python, I haven't done it in a few years so anything helps! :)
