@@ -6,6 +6,7 @@ import time
 import json
 from PIL import Image
 import urllib.request
+import sys
 
 sense = SenseHat()
 
@@ -23,35 +24,42 @@ sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=SP_CLIENT_ID,
                                                            scope="user-read-currently-playing"))
 
 while True:
-	track = sp.current_user_playing_track()
-	tname = track['item']['name']
-	tartist = track['item']['artists'][0]['name']
-	fullinfo = tname + " - " + tartist
+	try:
+		track = sp.current_user_playing_track()
+		tname = track['item']['name']
+		tartist = track['item']['artists'][0]['name']
+		fullinfo = tname + " - " + tartist
 
-	if SHOW_COVER:
-		try:
-			tcover = track['item']['album']['images'][0]['url']
-			urllib.request.urlretrieve(tcover, 'cover.png')
-			image = Image.open('cover.png')
-			new_image = image.resize((8, 8))
-			new_image.save('cover_8.png')
-			an_image = Image.open("cover_8.png")
-			sequence_of_pixels = an_image.getdata()
-			list_of_pixels = list(sequence_of_pixels)
-			#print(list_of_pixels)
-			#print(str(len(list_of_pixels)))
-			#print(tcover)
-			coverAvail = 1
-		except IndexError as e:
-			print("ERROR!")
-			print(e)
-			print("Do not panic, this is normal is you are playing from local files.")
-			coverAvail = 0
+		if SHOW_COVER:
+			try:
+				tcover = track['item']['album']['images'][0]['url']
+				urllib.request.urlretrieve(tcover, 'cover.png')
+				image = Image.open('cover.png')
+				new_image = image.resize((8, 8))
+				new_image.save('cover_8.png')
+				an_image = Image.open("cover_8.png")
+				sequence_of_pixels = an_image.getdata()
+				list_of_pixels = list(sequence_of_pixels)
+				#print(list_of_pixels)
+				#print(str(len(list_of_pixels)))
+				#print(tcover)
+				coverAvail = 1
+			except IndexError as e:
+				print("ERROR!")
+				print(e)
+				print("Do not panic, this is normal is you are playing from local files.")
+				coverAvail = 0
 
-	sense.show_message(fullinfo)
-	if SHOW_COVER:
-		if coverAvail == 1:
-			sense.set_pixels(list_of_pixels)
-		if coverAvail == 0:
-			print("Did not show cover since cover not available")
-	time.sleep(5)
+		sense.show_message(fullinfo)
+		if SHOW_COVER:
+			if coverAvail == 1:
+				sense.set_pixels(list_of_pixels)
+			if coverAvail == 0:
+				print("Did not show cover since cover not available")
+		time.sleep(5)
+	except KeyboardInterrupt:
+		sense.clear()
+		raise
+	except:
+		print("Unexpected error", sys.exc_info()[0])
+		pass
