@@ -22,7 +22,7 @@ SHOW_COVER = data['SHOW_COVER']
 sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=SP_CLIENT_ID,
                                                            client_secret=SP_CLIENT_SECRET,
                                                            redirect_uri=SP_REDIRECT_URI,
-                                                           scope="user-read-currently-playing"))
+                                                           scope="user-read-currently-playing,user-read-playback-state,user-modify-playback-state,streaming,app-remote-control"))
 
 def sense_loop():
 	while True:
@@ -89,6 +89,8 @@ def control_loop():
 		except KeyboardInterrupt:
 			sense.clear()
 			raise
+		except OSError:
+			pass
 		except:
 			print("Unexpected error", sys.exc_info()[0])
 			pass
